@@ -338,8 +338,7 @@ function bgTick(t){
 const F=['from','to','date','greet','title','letter','sign','music'];
 let edType='love',edFile=null;
 function fillEditor(){
-  F.forEach(k=>$('#e-'+k).value=CFG[k]||'');edType=CFG.type;
-  $$('.seg button').forEach(b=>{const on=b.dataset.type===edType;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});countLetter();
+  F.forEach(k=>$('#e-'+k).value=CFG[k]\vert{}\vert{}'');edType=CFG.type; $$('.seg button').forEach(b=>{const on=b.dataset.type===edType;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});countLetter();
 }
 function readEditor(){
   const c={type:edType};F.forEach(k=>{c[k]=$('#e-'+k).value.trim()});
@@ -348,11 +347,9 @@ function readEditor(){
   CFG=c;try{localStorage.setItem('guiem-cfg',JSON.stringify(c))}catch(e){}return c;
 }
 function countLetter(){$('#e-count').textContent=$('#e-letter').value.length+' / 420'}
-$('#e-letter').addEventListener('input',countLetter);
-$$('.seg button').forEach(b=>b.onclick=()=>{
+$('#e-letter').addEventListener('input',countLetter); $$('.seg button').forEach(b=>b.onclick=()=>{
   const nt=b.dataset.type;if(nt===edType)return;const old=PRESET[edType],nw=PRESET[nt];
-  ['from','to','greet','title','sign','letter'].forEach(k=>{const el=$('#e-'+k);if(!el.value.trim()||el.value.trim()===old[k])el.value=nw[k]});
-  edType=nt;$$('.seg button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});countLetter();
+  ['from','to','greet','title','sign','letter'].forEach(k=>{const el=$('#e-'+k);if(!el.value.trim()\vert{}\vert{}el.value.trim()===old[k])el.value=nw[k]}); edType=nt;$$('.seg button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});countLetter();
 });
 $('#e-file').onchange=e=>{edFile=e.target.files[0]||null;setMusic()};
 $('#e-preview').onclick=()=>{readEditor();setMusic();go('intro')};
@@ -501,7 +498,6 @@ function buildActions(){
   const add=(txt,fn,fill)=>{const b=document.createElement('button');b.className='ghost'+(fill?' fill':'');b.textContent=txt;b.onclick=fn;a.appendChild(b)};
   add('Xem lại từ đầu',()=>go('intro'));
   if(MODE==='create'){add('Chỉnh sửa',()=>go('editor'));add('Tạo mã QR',openQR,true)}
-  else add('Tạo quà của bạn',()=>{location.hash='';location.reload()},true);
 }
 scenes.letter={
   enter(){
